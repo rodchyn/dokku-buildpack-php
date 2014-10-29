@@ -67,15 +67,11 @@ build_command=$(cat <<BUILD_CMD
     --with-mysqli \
     --with-pdo-mysql \
     --with-pdo-sqlite \
-    --with-pdo-pgsql=/usr/bin/pg_config \
-    --with-pgsql \
     --enable-shmop \
     --enable-zip \
     --with-jpeg-dir=/usr \
     --with-png-dir=/usr \
-    --with-freetype-dir=/usr \
     --enable-exif \
-    --with-zlib=/app/vendor/php/zlib \
     --with-bz2 \
     --with-openssl \
     --enable-soap \
@@ -92,11 +88,9 @@ build_command=$(cat <<BUILD_CMD
     --enable-bcmath \
     --with-readline \
     --with-mcrypt=/app/vendor/libmcrypt \
-    --disable-debug \
     && make \
     && make install \
-    && /app/vendor/php/bin/pear config-set php_dir /app/vendor/php \
-    && $install_zend_optimizer
+    && /app/vendor/php/bin/pear config-set php_dir /app/vendor/php
 BUILD_CMD
 )
 
